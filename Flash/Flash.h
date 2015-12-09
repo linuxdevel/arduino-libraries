@@ -80,6 +80,10 @@ public:
   { return static_cast<char>(pgm_read_byte(_arr + index)); }
 
   void print(Print &stream) const;
+  
+  /* Compares the flash string with s2, at most n bytes are compared.
+  Returns 0 if strings are identical, 1 if not. */
+  int strncmp(const char *s2, size_t n);
 
 private:
   const prog_char *_arr;
