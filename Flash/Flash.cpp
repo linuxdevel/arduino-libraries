@@ -32,3 +32,25 @@ void _FLASH_STRING::print(Print &stream) const
     stream.print(c); // print in char form
   }
 }
+
+int _FLASH_STRING::strncmp(const char *s2, size_t n) {
+  size_t i;
+	size_t s2_len = strlen(s2);
+
+	if (s2_len < n) {
+		// s2 too short
+		return 1;
+	}
+	
+	for (i = 0; i < n; i++) {
+	  if (0 == (*this)[i]) {
+	    return 1;
+	  }
+		if ((*this)[i] != s2[i]) {
+			return 1;
+		}
+	}
+	
+	return 0;
+
+}
